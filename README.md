@@ -14,11 +14,12 @@ Instalar Node version 16.13.0 o superior
 ```
 
 ### Instalación 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+_Para reconstruir los modulos de node utilizando yarn_
 
+ Ejecute este comando
 
 ```
-npm install
+yarn
 ```
 
 En el directorio del proyecto, puede ejecutar:
