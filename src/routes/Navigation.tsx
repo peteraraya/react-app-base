@@ -1,44 +1,59 @@
 
+import { Suspense } from 'react';
 import {
   BrowserRouter as Router,
-  Routes,
+  Switch,
   Route,
-  NavLink
+  NavLink,
+  Redirect
 } from 'react-router-dom';
 
 import logo from '../logo.svg';
+import { routes } from './routes';
 
 export const Navigation = () => {
   return (
+  <Suspense fallback={<span>Loading ...</span>}>
     <Router>
       <div className="main-layout">
         <nav>
           <img src={logo} alt="React Logo" />
           <ul>
-            <li>
-              <NavLink to="/" className={({ isActive }) => isActive ? 'nav-active' : ''} end>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-active' : ''} end>About</NavLink>
-            </li>
-            <li>
-              <NavLink to="/users" className={({ isActive }) => isActive ? 'nav-active' : ''}  end>Users</NavLink>
-            </li>
+            {
+              routes.map(({path,name}) => (
+                <li key={path}>
+                  <NavLink
+                    to={path}
+                    activeClassName="nav-active"
+                    exact>
+                    {name}
+                  </NavLink>
+                </li>
+              ))
+            }
+           
           </ul>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
-          <Route path="/about" element={<h1>About</h1>} />
-          <Route path="/users" element={<h1>Users</h1>} />
-        </Routes>
+        <Switch>
+          {
+            routes.map(({ path, component:Component }) => (
+              <Route
+                path={path}
+                key={path}
+                render={() => <Component />}
+              />
+            ))
+          }
+         <Redirect to={ routes[0].path} />
+        </Switch>
       </div>
-    </Router>
+      </Router>
+    </Suspense>
   );
 }
 
-// Routes cambio por Switch
-// NavLink cambio por Link --> className={({ isActive }) => isActive ? 'nav-active' : ''} end
-// <Routes> : cabio en la forma de renderizar los componentes
+
+// // Uso de versión  yarn add react-router-dom@5.3.0 
