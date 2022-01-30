@@ -2,7 +2,7 @@
 import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
-import { routes } from '../01-Lazyload/router/routes';
+import { routes } from './routes';
 
 
 import logo from '../logo.svg';
