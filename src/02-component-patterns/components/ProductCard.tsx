@@ -25,12 +25,6 @@ export const ProductCard = ({ children, product }: ProductCardProps) => {
 
       { children }
 
-      {/* 
-        <ProductImage img={product.img} />
-        <ProductTitle title={product.title} />
-        <ProductButtons increaseBy={increaseBy} counter={counter} /> 
-      */}
-
       </div>
     </Provider>
   );

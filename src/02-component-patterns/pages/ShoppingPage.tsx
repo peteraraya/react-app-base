@@ -1,7 +1,4 @@
-
-import { ProductCard } from '../components/ProductCard';
-import { ProductButtons, ProductImage, ProductTitle } from '../components';
-
+import { ProductButtons, ProductImage, ProductTitle, ProductCard } from '../components';
 
 const product = {
   id: '1',
@@ -30,12 +27,12 @@ export const ShoppingPage = () => {
         </ProductCard>
 
         {/* Patrón 2 : Componente con propiedades */}
-        {/* <ProductCard product={product} >
-        
+        <ProductCard product={product} >
+          {/* Childrens */}
           <ProductCard.Image img='' />
           <ProductCard.Title title={'Café forma 2'} />
           <ProductCard.Buttons />
-        </ProductCard> */}
+        </ProductCard>
       </div>
 
     </div>
