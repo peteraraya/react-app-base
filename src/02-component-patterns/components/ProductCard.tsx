@@ -1,7 +1,7 @@
+import { createContext, ReactElement, useContext } from 'react';
 import styles from '../styles/styles.module.css';
 import noImage from '../assets/no-image.jpg';
 import { useProduct } from '../hooks/useProduct';
-import { ReactElement } from 'react';
 
 interface Props {
   product: Product;
@@ -14,25 +14,58 @@ interface Product {
   img?: string;
 }
 
+// Contexto para el componente ProductCard
+
+interface ProductContextProps {
+  counter: number;
+  increaseBy: (value: number) => void;
+  product: Product;
+}
+
+const ProductContext = createContext({} as ProductContextProps);
+
+const { Provider } = ProductContext;
+
 
 export const ProductImage = ({ img = '' }) => {
+
+  const { product } = useContext(ProductContext);
+
+  let imgToShow: string;
+  
+  if (img) {
+    imgToShow = img;
+
+  } else if (product.img) {
+    imgToShow = product.img;
+    
+  } else {
+    imgToShow = noImage;
+  }
+
+
   return (
-    <img src={img ? img : noImage} alt="Product" className={styles.productImg} />
+    <img src={imgToShow} alt="Product" className={styles.productImg} />
   )
 }
 // se recomienda utilizar esta forma cuando recibimos una sola propiedad caso contrario utilizar una interfaz
-export const ProductTitle = ({ title }: { title: string }) => {
+export const ProductTitle = ({ title }: { title?: string }) => {
+
+  const { product } = useContext(ProductContext);
+
   return (
-    <span className={styles.productDescription}>{title}</span>
+    <span className={styles.productDescription}>{title ? title: product.title}</span>
   )
 }
 
-interface ProductsButtonProps {
-  increaseBy: (value: number) => void;
-  counter: number;
-}
+// interface ProductsButtonProps {
+//   increaseBy: (value: number) => void;
+//   counter: number;
+// }
 
-export const ProductButtons = ({ increaseBy, counter }: ProductsButtonProps) => {
+export const ProductButtons = () => {
+
+  const { increaseBy, counter } = useContext(ProductContext);
 
   return (
     <div className={styles.buttonsContainer}>
@@ -55,7 +88,7 @@ export const ProductButtons = ({ increaseBy, counter }: ProductsButtonProps) => 
         +
       </button>
 
-    </div>
+      </div>
   )
 }
 
@@ -67,17 +100,23 @@ export const ProductCard = ({ children, product }: Props) => {
 
   // console.log(styles);
   return (
+    <Provider value={{
+      counter,
+      increaseBy,
+      product
+    }}>
     <div className={styles.productCard}>
 
       { children }
 
-      {/* <ProductImage img={product.img} />
+      {/* 
+        <ProductImage img={product.img} />
+        <ProductTitle title={product.title} />
+        <ProductButtons increaseBy={increaseBy} counter={counter} /> 
+      */}
 
-      <ProductTitle title={product.title} />
-
-      <ProductButtons increaseBy={increaseBy} counter={counter} /> */}
-
-    </div>
+      </div>
+    </Provider>
   );
 };
 

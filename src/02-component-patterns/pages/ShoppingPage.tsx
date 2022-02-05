@@ -22,16 +22,16 @@ export const ShoppingPage = () => {
         <ProductCard product={product} >
           {/* Childrens */}
           <ProductImage />
-          <ProductTitle title={'Café - forma 1'} />
-          <ProductButtons increaseBy={() => { }} counter={0} />
+          <ProductTitle  />
+          <ProductButtons />
         </ProductCard>
 
         {/* Patrón 2 : Componente con propiedades */}
         <ProductCard product={product} >
           {/* Childrens */}
-          <ProductCard.Image />
+          <ProductCard.Image img='' />
           <ProductCard.Title title={'Café forma 2'} />
-          <ProductCard.Buttons increaseBy={() => { }} counter={0} />
+          <ProductCard.Buttons />
         </ProductCard>
       </div>
 
