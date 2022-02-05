@@ -80,3 +80,8 @@ export const ProductCard = ({ children, product }: Props) => {
     </div>
   );
 };
+
+// Asignamos propiedades
+ProductCard.Title = ProductTitle;
+ProductCard.Image = ProductImage;
+ProductCard.Buttons = ProductButtons;

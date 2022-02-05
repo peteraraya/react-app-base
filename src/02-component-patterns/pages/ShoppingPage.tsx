@@ -16,12 +16,22 @@ export const ShoppingPage = () => {
         flexDirection: "row",
         flexWrap: "wrap",
       }}>
+        {/* Se dejan las dos formas de llamar los componentes para darle soporte - pero se recomienda elegir una de ellas y estandarizar */}
 
+        {/* Patrón 1 : LLamo los subcomponentes importandolos */}
         <ProductCard product={product} >
           {/* Childrens */}
           <ProductImage />
-          <ProductTitle title={''} />
+          <ProductTitle title={'Café - forma 1'} />
           <ProductButtons increaseBy={() => { }} counter={0} />
+        </ProductCard>
+
+        {/* Patrón 2 : Componente con propiedades */}
+        <ProductCard product={product} >
+          {/* Childrens */}
+          <ProductCard.Image />
+          <ProductCard.Title title={'Café forma 2'} />
+          <ProductCard.Buttons increaseBy={() => { }} counter={0} />
         </ProductCard>
       </div>
 
