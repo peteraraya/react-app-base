@@ -1,4 +1,4 @@
-import { ProductCard } from '../components/ProductCard';
+import { ProductButtons, ProductCard, ProductImage, ProductTitle } from '../components/ProductCard';
 
 const product = {
   id: '1',
@@ -16,11 +16,21 @@ export const ShoppingPage = () => {
         flexDirection: "row",
         flexWrap: "wrap",
       }}>
-        
-        <ProductCard product={product} />
 
+        <ProductCard product={product} >
+          {/* Childrens */}
+          <ProductImage />
+          <ProductTitle title={''} />
+          <ProductButtons increaseBy={() => { }} counter={0} />
+        </ProductCard>
       </div>
 
     </div>
   );
 };
+
+/**
+ * Compound Components Pattern (Composicion de componentes)
+ *  Lo que busca que tengamos un componente padre y que internamente tengamos uno o varios componentes hijos
+ *  Este patron es muy utilizado en ionic
+ */
