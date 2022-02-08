@@ -77,8 +77,48 @@ _Herramientas utilizadas_
 * [Visual Studio Code](https://code.visualstudio.com/) - Editor
 
 ## Versionado 📌
-  > 0.1.0  : Configuración de Rutas de la aplicación
+  > 0.1.0  : Configuración de Rutas de la aplicación - Rama main
 
+
+## Contenido :globe_with_meridians:
+
+ -  ` compound-component-pattern` :white_check_mark:,
+  
+      Utilización de Patrones de Componentes Compuestos (Compound Components Patterns)
+       ```
+      git compound-component-pattern
+      ```       
+
+ -  `lazyload-nested-rrd6` :white_check_mark:,
+  
+      Utilización de Lazyload Nested con la versión de react router 6.2.1
+       ```
+      git checkout lazyload-nested-rrd6
+      ```          
+
+  -  `lazyload-rrd-v6` :white_check_mark:,
+  
+      Utilización de Lazyload con la versión de react router 6.2.1
+       ```
+      git checkout lazyload-rrd-v6 
+      ```          
+
+ -  `lazyload-nested--react-router-5.3.0` :white_check_mark:,
+  
+      Utilización de Lazyload Nested con la versión de react router 5.3.0
+       ```
+      git checkout lazyload-nested--react-router-5.3.0  
+      ```          
+
+  -  `lazyload-react-router-5.3.0` :white_check_mark:,
+  
+      Utilización de Lazyload con la versión de react router 5.3.0
+       ```
+      git checkout lazyload-react-router-5.3.0  
+      ```          
+ 
+           
+      
 ## Autores ✒️
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
