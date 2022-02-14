@@ -1,21 +1,28 @@
 import { ProductCard as ProductCardHOC} from './ProductCard';
 import { ProductCardHOCProps } from '../interfaces/interfaces';
 
+import { ProductButtons } from './ProductButtons';
 import { ProductImage } from './ProductImage';
 import { ProductTitle } from './ProductTitle';
-import { ProductButtons } from './ProductButtons';
 
 export { ProductButtons } from './ProductButtons';
-export { ProductTitle } from './ProductTitle';
+export type { ButtonsProps } from './ProductButtons';
+
 export { ProductImage } from './ProductImage';
+export type { ImageProps } from './ProductImage';
+
+export { ProductTitle } from './ProductTitle';
+export type { TitleProps } from './ProductTitle';
+
+
 
 
 // Es un componente especial : Object.assign nos permite asignarle nuevas propiedades a un componente
 export const ProductCard: ProductCardHOCProps = Object.assign(ProductCardHOC, {
   // En este caso le asignamos una propiedad a ProductCard
-  Title: ProductTitle,
+  Buttons: ProductButtons,
   Image: ProductImage,
-  Buttons: ProductButtons
+  Title: ProductTitle,
 });
 
 
