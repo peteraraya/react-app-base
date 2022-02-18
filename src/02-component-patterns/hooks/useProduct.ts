@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { onChangeArgs, Product } from '../interfaces/interfaces';
 
 interface useProductArgs {
@@ -11,22 +11,7 @@ export const useProduct = ({ onChange, product, value = 0  } : useProductArgs ) 
   
   const [counter, setCounter] = useState(value);
 
-  // evaluamos si nuestro componente esta siendo evaluado por una función
-  // utilizamos un useRef para evitar redibujar denuevo los componentes en caso de que cambie 
-
-  // verificamos si el componente esta siendo evaluado por una función con true o false
-  const isControlled = useRef(!!onChange);
-
-  console.log('isControlled : ', isControlled.current);
-
-
   const increaseBy = (value: number) => {
-
-    if (isControlled.current) {
-      // este ! es para decirle a ts que siempre vas a tener el valor
-      return onChange!({ count: value, product });
-    }
-
 
     // Creamos una variables que mantenga el nuevo valor
     const newValue = Math.max(counter + value, 0)
