@@ -1,0 +1,75 @@
+[
+  {
+    "type": "input",
+    "name": "firstName",
+    "placeholder": "Ingrese nombre",
+    "label": "First Name",
+    "value": "",
+    "validations": [
+        {
+          "type": "required"
+        },
+        {
+          "type": "minLength",
+          "value": "5"
+        }
+      ]
+  },
+  {
+    "type": "input",
+    "name": "lastName",
+    "placeholder": "Ingrese Apelido",
+    "label": "Last Name",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "minLength",
+        "value": "5"
+      }
+    ]
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placeholder": "Ingrese email",
+    "label": "Email",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "email"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "name": "favoriteGame",
+    "label": "Favorite Game",
+    "value": "",
+    "options":[
+      {
+        "id"    :  1, 
+        "label" :"Super Smash"
+      },
+      {
+        "id"    :  2, 
+        "label" : "Metal gear"
+      },
+      {
+        "id"    :  3, 
+        "label" :"Mario"
+      },
+      {
+        "id"    :  4, 
+        "label" :"Street Fighter"
+      }
+    ]
+    
+  }
+]
+
